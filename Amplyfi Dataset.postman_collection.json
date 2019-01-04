@@ -6,7 +6,180 @@
 	},
 	"item": [
 		{
-			"name": "Elasticsearch query",
+			"name": "Elasticsearch",
+			"item": [
+				{
+					"name": "List Indices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:9200/_cat/indices?v",
+							"host": [
+								"localhost"
+							],
+							"port": "9200",
+							"path": [
+								"_cat",
+								"indices"
+							],
+							"query": [
+								{
+									"key": "v",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Query",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:9200/_search?q=Places:Colorado",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9200",
+							"path": [
+								"_search"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "Places:Colorado"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Index",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:9200/foo",
+							"host": [
+								"localhost"
+							],
+							"port": "9200",
+							"path": [
+								"foo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Index",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n\t\"title\" : \"foo\", \n\t\"author\" : \"the bars\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9200/foo/bar/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9200",
+							"path": [
+								"foo",
+								"bar",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Data/Import",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/data/import?amount=10000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"data",
+						"import"
+					],
+					"query": [
+						{
+							"key": "amount",
+							"value": "10000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Data/Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/data/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"data",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Data/Get",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -15,19 +188,25 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:9200/_search?q=",
+					"raw": "http://localhost:5000/api/data/get?filter=Places&value=Colorado",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "9200",
+					"port": "5000",
 					"path": [
-						"_search"
+						"api",
+						"data",
+						"get"
 					],
 					"query": [
 						{
-							"key": "q",
-							"value": ""
+							"key": "filter",
+							"value": "Places"
+						},
+						{
+							"key": "value",
+							"value": "Colorado"
 						}
 					]
 				}
