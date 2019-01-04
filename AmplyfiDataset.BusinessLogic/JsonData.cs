@@ -6,7 +6,7 @@ namespace AmplyfiDataset.BusinessLogic
     public class JsonData
     {
         [JsonProperty("m_szDocID")]
-        public int DocumentId { get; set; }
+        public string DocumentId { get; set; }
 
         [JsonProperty("m_szDocTitle")]
         public string DocumentTitle { get; set; }
