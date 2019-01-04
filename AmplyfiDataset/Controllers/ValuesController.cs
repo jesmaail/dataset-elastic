@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.IO;
 using Microsoft.AspNetCore.Mvc;
+using RestSharp;
 
 namespace AmplyfiDataset.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class ValuesController : ControllerBase
     {
@@ -17,29 +16,31 @@ namespace AmplyfiDataset.Controllers
             return new string[] { "value1", "value2" };
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
-        {
-            return "value";
-        }
+        // Want to have actions to clear down elasticsearch and to import (have an amount on the import and limit the ++ by that limit).
 
-        // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Import()
         {
-        }
+            var filePath = "../data/";
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
+            var directoryInfo = new DirectoryInfo(filePath);
+            var files = directoryInfo.GetFiles("*.json");
+            var restsharpClient = new RestClient("http://localhost:9200");
 
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            var indexName = "electric";
+            var type = "json";
+            var index = 1; // want to have a ++ on this
+
+
+            var request = new RestRequest($"{indexName}/{type}/{index}");
+
+            request.AddJsonBody(new
+            {
+                DocId = "252",
+                DocTitle = "Big Opportunity Now For Miami To Establish Commuter Rail Downtown | CleanTechnica"
+            });
+
+            var response = restsharpClient.Execute(request, Method.PUT);
         }
     }
 }
