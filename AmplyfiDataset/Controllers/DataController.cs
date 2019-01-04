@@ -25,5 +25,12 @@ namespace AmplyfiDataset.Controllers
         {
             _importer.DeleteElasticIndex();
         }
+
+        // TODO: Parameterless get
+        [HttpGet]
+        public JsonResult Get(string filter, string value)
+        {
+            return new JsonResult(_importer.QueryElasticsearch(filter, value));
+        }
     }
 }

@@ -1,11 +1,13 @@
 ﻿using Newtonsoft.Json;
 using RestSharp;
+using System.Collections.Generic;
 using System.IO;
 
 namespace AmplyfiDataset.BusinessLogic
 {
     public class BulkJsonImporter
     {
+        // TODO: Move the elastic requests somewhere else 
 
         public void ImportDataToElasticsearch(int maxDocuments)
         {
@@ -68,6 +70,30 @@ namespace AmplyfiDataset.BusinessLogic
             
 
             var response = restsharpClient.Execute(request, Method.DELETE);
+        }
+
+        public object QueryElasticsearch(string filter, string value)
+        {
+            var restsharpClient = new RestClient("http://localhost:9200");            
+
+            var request = new RestRequest($"_search?q={filter}:{value}");
+
+            var response = restsharpClient.Execute(request);
+
+            var result = JsonConvert.DeserializeObject<OutputData>(response.Content);
+
+            var dataList = new List<object>();
+
+            foreach(var data in result.Result.Data)
+            {
+                dataList.Add(data.Source);
+            }
+
+            return new
+            {
+                Total = result.Result.total,
+                Data = dataList
+            };
         }
     }
 }
