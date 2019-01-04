@@ -1,28 +1,47 @@
 # Amplyfi Dataset
 
-## To-Do
-- Find something __interesting__ to do with the dataset (electric cars)
-    - Have a search by each _category(?)_ e.g. Companies, Source type, geo, etc.
-    - Present the data in a more broken down fashion to leave interpretation up to the user.
+## Goal: Perform something interesting on the dataset
 
-- Load JSON Data into Elasticsearch for simple querying
-    - Filebeats?
+- Giving the choice to the user.
+- Looking to present the dataset to the end-user with filters to be able to select which data they find most relevant to them.
 
-- What kind of application?
-    - MVC
-        - Favour the API route.
-    - API
-        - Return JSONResult? (maybe won't work for a lot of data points)
-        - Return FileResult? (will probably want it formatted better)
-        - Could attach a Front-End (React? Do this as extra)
+- Perhaps some pre-filtered data to demo. 
+    - All data mentioning "Elon Musk".
+    - Most popular Source Type (This can be predone logic on the BE)
 
-- RestSharp Elasticsearch requests
+--- 
 
-- __Hosting!__
+## To-Do 
+- Install Resharper (MUST)
 
-- Set up Elasticsearch Docker-Compose (Setup instructions otherwise)
+- Extend the `JsonData` class with more data points (maybe rename?)
 
+- Unit tests!
 
+- Front-End
+    - Display data and filter it
+    - React & Axios?
+
+- Rename `JsonImporter`?
+
+- Refactor the `ElasticData` classes
+
+--- 
+
+## Nice-To-Haves
+- Move Elasticsearch endpoint to config
+
+- Dependency Injection?
+
+- Revisit  `Filebeat` or `Logstash` for loading in data.
+
+- Elasticsearch Docker-Compose
+
+- API Docker-Compose
+
+- Hosting
+
+---
 ---
 
 ## Elasticsearch on Docker
@@ -34,9 +53,4 @@ $ docker pull docker.elastic.co/elasticsearch/elasticsearch:6.5.4
 
 ```
 $ docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:6.5.4
-```
-
-### Postman
-```
-http://localhost:9200/_search?q=
 ```
