@@ -344,3 +344,4 @@ healthchecksdb
 # Custom
 
 data/
+elk/
