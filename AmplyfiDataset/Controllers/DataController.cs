@@ -1,4 +1,5 @@
 ﻿using AmplyfiDataset.BusinessLogic;
+using AmplyfiDataset.ElasticsearchWrapper;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AmplyfiDataset.Controllers
@@ -7,11 +8,13 @@ namespace AmplyfiDataset.Controllers
     [ApiController]
     public class DataController : ControllerBase
     {
-        private readonly BulkJsonImporter _importer;
+        private readonly JsonImporter _importer;
+        private readonly ElasticsearchRequests _elasticsearchRequests;
 
         public DataController()
         {
-            _importer = new BulkJsonImporter();
+            _importer = new JsonImporter();
+            _elasticsearchRequests = new ElasticsearchRequests();
         }
         
         [HttpPost]
@@ -23,14 +26,13 @@ namespace AmplyfiDataset.Controllers
         [HttpDelete]
         public void Delete()
         {
-            _importer.DeleteElasticIndex();
+            _elasticsearchRequests.DeleteIndex();
         }
-
-        // TODO: Parameterless get
+        
         [HttpGet]
-        public JsonResult Get(string filter, string value)
+        public JsonResult Get(string filter = null, string value = null)
         {
-            return new JsonResult(_importer.QueryElasticsearch(filter, value));
+            return new JsonResult(_elasticsearchRequests.Query(filter, value));
         }
     }
 }

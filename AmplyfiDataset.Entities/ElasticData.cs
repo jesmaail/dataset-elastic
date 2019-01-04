@@ -1,11 +1,9 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace AmplyfiDataset.BusinessLogic
+namespace AmplyfiDataset.Entities
 {
-    // Desperately needs a refactor
-
-    public class OutputData
+    public class ElasticData
     {
         [JsonProperty("hits")]
         public Result Result { get; set; }

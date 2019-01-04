@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace AmplyfiDataset.BusinessLogic
+namespace AmplyfiDataset.Entities
 {
     public class JsonData
     {

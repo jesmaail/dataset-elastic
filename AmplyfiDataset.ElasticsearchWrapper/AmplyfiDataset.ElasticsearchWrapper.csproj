@@ -5,7 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AmplyfiDataset.ElasticsearchWrapper\AmplyfiDataset.ElasticsearchWrapper.csproj" />
+    <PackageReference Include="RestSharp" Version="106.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\AmplyfiDataset.Entities\AmplyfiDataset.Entities.csproj" />
   </ItemGroup>
 
