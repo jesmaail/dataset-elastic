@@ -36,6 +36,7 @@ namespace AmplyfiDataset
             }
 
             app.UseMvc();
+            app.UseCors(builder => builder.WithOrigins("http://localhost:3000"));
         }
     }
 }
