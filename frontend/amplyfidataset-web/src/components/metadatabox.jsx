@@ -11,28 +11,21 @@ class MetadataBox extends Component {
                             <span style={this.titleStyle}> <b>Metadata</b> </span>
                             <br/>
                             <MetadataItem 
-                                title = "Tags"
-                            />
-                            <MetadataItem 
                                 title = "Geo"
                                 value = { this.props.geo }
                             />
-                            
-                            {/* These divs can go into their own component */}
-
-                            <div>
-                                Tags:
-                                <br/>
-                                <button className="btn btn-sm btn-outline-secondary" disabled>Tag1</button>
-                                <button className="btn btn-sm btn-outline-secondary" disabled>Tag2</button>
-                            </div>
-
-                            <div>
-                                Companies:
-                                <br/>
-                                <small className="text-muted"> Company A </small>,
-                                <small className="text-muted"> Amplyfi </small>
-                            </div>     
+                            <MetadataItem 
+                                title = "Places"
+                                value = { this.props.places }
+                            />
+                            <MetadataItem 
+                                title = "People"
+                                value = { this.props.people }
+                            />
+                            <MetadataItem
+                                title = "Companies"
+                                value = { this.props.companies }
+                            />  
                         </div>
 
                     </div>

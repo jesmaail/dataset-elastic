@@ -17,7 +17,7 @@ class DataBoxes extends Component {
                             body = {data.Body}
                             geo = {data.Geo}
                             sourcetype = {data.SourceType}
-                            sourceurl = {data.sourceUrl}
+                            sourceurl = {data.SourceUrl}
                             places = {data.Places}
                             people = {data.People}
                             companies = {data.Companies}

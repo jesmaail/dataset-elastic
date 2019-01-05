@@ -16,6 +16,8 @@ class TextDataBox extends Component {
                                     { this.props.body }                                        
                                 </p>                
                             </div>
+                            <hr/>
+                            { this.props.year } | { this.props.sourceurl } ({ this.props.sourcetype })
                         </div>
 
                     </div>

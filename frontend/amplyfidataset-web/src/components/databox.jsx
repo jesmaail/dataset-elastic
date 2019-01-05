@@ -4,7 +4,7 @@ import MetadataBox from "./metadatabox";
 
 class DataBox extends Component { 
     titleStyle = {
-        fontSize: 16
+        fontSize: 18
     }
 
     summaryStyle = {
@@ -25,11 +25,17 @@ class DataBox extends Component {
                     title = { this.props.title }
                     summary = { this.props.summary }
                     body = { this.props.body }
+                    year = { this.props.year }
+                    sourcetype = { this.props.sourcetype }
+                    sourceurl = { this.props.sourceurl }
                 />
-                
+
                 <MetadataBox
                     titleStyle = { this.titleStyle }
                     geo = { this.props.geo }
+                    places = { this.props.places }
+                    people = { this.props.people }
+                    companies = { this.props.companies }
                 />
             </React.Fragment>
         )
