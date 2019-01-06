@@ -25,7 +25,15 @@ class MetadataBox extends Component {
                             <MetadataItem
                                 title = "Companies"
                                 value = { this.props.companies }
-                            />  
+                            />
+                            <MetadataItem
+                                title = "BiGrams"
+                                value = { this.props.bigrams }
+                            />
+                            <MetadataItem
+                                title = "TriGrams"
+                                value = { this.props.trigrams }
+                            />
                         </div>
 
                     </div>

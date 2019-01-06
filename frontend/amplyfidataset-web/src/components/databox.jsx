@@ -37,6 +37,8 @@ class DataBox extends Component {
                     places = { this.props.places }
                     people = { this.props.people }
                     companies = { this.props.companies }
+                    bigrams = { this.props.bigrams }
+                    trigrams = { this.props.trigrams }
                 />
             </React.Fragment>
         )

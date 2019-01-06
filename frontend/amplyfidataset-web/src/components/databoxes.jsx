@@ -22,6 +22,8 @@ class DataBoxes extends Component {
                             places = {data._source.Places}
                             people = {data._source.People}
                             companies = {data._source.Companies}
+                            bigrams = {data._source.BiGrams}
+                            trigrams = {data._source.TriGrams}
                             />
                         )
                     })}

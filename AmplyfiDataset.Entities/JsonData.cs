@@ -40,6 +40,10 @@ namespace AmplyfiDataset.Entities
         [JsonProperty("m_Companies")]
         public List<string> Companies { get; set; }
 
-        // Extra data points left e.g. nGrams, tags, topics
+        [JsonProperty("m_BiGrams")]
+        public List<string> BiGrams { get; set; }
+
+        [JsonProperty("m_TriGrams")]
+        public List<string> TriGrams { get; set; }
     }
 }
