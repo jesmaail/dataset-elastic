@@ -3,13 +3,16 @@ import React, { Component } from "react";
 class FilterForm extends Component {
     state = {
         filter: "Places",
-        value: "Colorado"
+        value: "Colorado",
+        amount: 5,
     }
 
     constructor(props){
         super(props);
         this.handleFilterChange = this.handleFilterChange.bind(this);
         this.handleValueChange = this.handleValueChange.bind(this);
+        this.handleAmountChange = this.handleAmountChange.bind(this);
+
         this.handleSubmit = this.handleSubmit.bind(this);
     }
     
@@ -21,22 +24,31 @@ class FilterForm extends Component {
         this.setState({value: event.target.value});
     }
 
+    handleAmountChange(event) {
+        this.setState({amount: event.target.value})
+    }
+
     handleSubmit(event) {
         event.preventDefault();
-        this.props.callback(this.state.filter, this.state.value);
+        this.props.callback(this.state.filter, this.state.value, this.state.amount);
     }
 
     render(){
         return (
             <form onSubmit={this.handleSubmit}>
                 <label>
-                    Filter by:
+                    Filter by: 
                     <input type="filter" value={this.state.filter} onChange={this.handleFilterChange} />
                 </label>
                 <br/>
                 <label>
-                    Filter value:
+                    Filter value: 
                     <input type="value" value={ this.state.value } onChange={this.handleValueChange} />
+                </label>
+                <br/>
+                <label>
+                    Amount: 
+                    <input type="amount" value={ this.state.amount } onChange={this.handleAmountChange} />
                 </label>
                 <br/>
                 <input type="submit" value="Submit"/>

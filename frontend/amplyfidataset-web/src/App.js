@@ -8,26 +8,36 @@ import axios from "axios";
 class App extends Component {
   state = {
     total: 0,
-    data: []
+    data: [],
+    currentFilterby: "NONE",
+    currentFilterValue: "NONE",
+    currentFilterAmount: "5"
   }
 
-  filterCallback = (filter, value) => {
-    console.log(filter + ": " + value)
-    this.getData(filter, value)
+  filterCallback = (filter, value, amount) => {
+    this.getData(filter, value, amount)
   }
 
-  getData = (filterBy, value) => {
+  getData = (filterBy, value, amount) => {
     console.log("getData: " + filterBy + ": " + value)
     let total = this.state.total;
     let data = [...this.state.data];
 
     axios
-      .get("http://localhost:3000/data/get?filter=" + filterBy + "&value=" + value)
+      .get("http://localhost:3000/data/get?filter=" + filterBy + "&value=" + value + "&amount=" + amount)
       .then(
         (json) => {
           total = json.data.total;
           data = json.data.data; 
-          this.setState( { total, data} )
+
+          if(total < amount){
+            amount = total;
+          }
+
+          this.setState({ total, data })
+          this.setState({ currentFilterby: filterBy })
+          this.setState({ currentFilterValue: value })
+          this.setState({ currentFilterAmount: amount})
         } 
       )
 
@@ -42,7 +52,10 @@ class App extends Component {
           callback = { this.filterCallback }
         />
         <br/>
-        <span> Total hits: {this.state.total} </span>
+        Filtered by: {this.state.currentFilterby} = {this.state.currentFilterValue}
+        <br/>
+        Displaying {this.state.currentFilterAmount} of total {this.state.total} hits.
+        <hr/>
 
         <DataBoxes data={ this.state.data } />
 

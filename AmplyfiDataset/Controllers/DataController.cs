@@ -30,9 +30,9 @@ namespace AmplyfiDataset.Controllers
         }
         
         [HttpGet]
-        public JsonResult Get(string filter = null, string value = null)
+        public JsonResult Get(string filter = null, string value = null, int amount = 5)
         {
-            return new JsonResult(_elasticsearchRequests.Query(filter, value));
+            return new JsonResult(_elasticsearchRequests.Query(filter, value, amount));
         }
     }
 }

@@ -33,13 +33,16 @@ namespace AmplyfiDataset.ElasticsearchWrapper
             var response = _client.Execute(request, Method.DELETE);
         }
 
-        public object Query(string filter, string value)
+        public object Query(string filter, string value, int amount)
         {
-            var searchString = ELASTICSEARCH_SEARCH_STRING;
-
-            if(filter != null)
+            var searchString = string.Empty;
+            if(filter == null || value == null)
             {
-                searchString += $"?q={filter}:{value}";
+                searchString = $"{ELASTICSEARCH_SEARCH_STRING}?size={amount}";
+            }
+            else
+            {
+                searchString += $"{ELASTICSEARCH_SEARCH_STRING}?size={amount}&q={filter}:{value}";
             }
 
             var request = new RestRequest(searchString);
