@@ -5,6 +5,7 @@ class FilterForm extends Component {
         filter: "Places",
         value: "Colorado",
         amount: 5,
+        threshold: 6
     }
 
     constructor(props){
@@ -12,6 +13,7 @@ class FilterForm extends Component {
         this.handleFilterChange = this.handleFilterChange.bind(this);
         this.handleValueChange = this.handleValueChange.bind(this);
         this.handleAmountChange = this.handleAmountChange.bind(this);
+        this.handleThresholdChange = this.handleThresholdChange.bind(this);
 
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -28,9 +30,13 @@ class FilterForm extends Component {
         this.setState({amount: event.target.value})
     }
 
+    handleThresholdChange(event) {
+        this.setState({threshold: event.target.value})
+    }
+
     handleSubmit(event) {
         event.preventDefault();
-        this.props.callback(this.state.filter, this.state.value, this.state.amount);
+        this.props.callback(this.state.filter, this.state.value, this.state.amount, this.state.threshold);
     }
 
     render(){
@@ -49,6 +55,11 @@ class FilterForm extends Component {
                 <label>
                     Amount: 
                     <input type="amount" value={ this.state.amount } onChange={this.handleAmountChange} />
+                </label>
+                <br/>
+                <label>
+                    Relevance Score Threshold: 
+                    <input type="threshold" value={ this.state.threshold } onChange={this.handleThresholdChange} />
                 </label>
                 <br/>
                 <input type="submit" value="Submit"/>

@@ -11,20 +11,16 @@ class App extends Component {
     data: [],
     currentFilterby: "NONE",
     currentFilterValue: "NONE",
-    currentFilterAmount: "5"
+    currentFilterAmount: 0,
+    currentFilterThreshold: 0
   }
 
-  filterCallback = (filter, value, amount) => {
-    this.getData(filter, value, amount)
-  }
-
-  getData = (filterBy, value, amount) => {
-    console.log("getData: " + filterBy + ": " + value)
+  getData = (filterBy, value, amount, threshold) => {
     let total = this.state.total;
     let data = [...this.state.data];
 
     axios
-      .get("http://localhost:3000/data/get?filter=" + filterBy + "&value=" + value + "&amount=" + amount)
+      .get("http://localhost:3000/data/get?filter=" + filterBy + "&value=" + value + "&amount=" + amount + "&threshold=" + threshold)
       .then(
         (json) => {
           total = json.data.total;
@@ -37,7 +33,8 @@ class App extends Component {
           this.setState({ total, data })
           this.setState({ currentFilterby: filterBy })
           this.setState({ currentFilterValue: value })
-          this.setState({ currentFilterAmount: amount})
+          this.setState({ currentFilterAmount: amount })
+          this.setState({ currentFilterThreshold: threshold })
         } 
       )
 
@@ -49,12 +46,12 @@ class App extends Component {
         <NavBar/>
         
         <FilterForm
-          callback = { this.filterCallback }
+          callback = { this.getData }
         />
         <br/>
-        Filtered by: {this.state.currentFilterby} = {this.state.currentFilterValue}
+        Filtered by: <b>{this.state.currentFilterby}</b> = <b>{this.state.currentFilterValue}</b> with score threshold of <b> {this.state.currentFilterThreshold} </b>
         <br/>
-        Displaying {this.state.currentFilterAmount} of total {this.state.total} hits.
+        Displaying <b>{this.state.currentFilterAmount}</b> of total <b>{this.state.total}</b> potential hits <i>(ignoring threshold)</i>
         <hr/>
 
         <DataBoxes data={ this.state.data } />
