@@ -11,16 +11,17 @@ class DataBoxes extends Component {
                         return(
                             <DataBox
                             key = {id}
-                            title = {data.DocumentTitle}
-                            year = {data.Year}
-                            summary = {data.DocumentSummary}
-                            body = {data.Body}
-                            geo = {data.Geo}
-                            sourcetype = {data.SourceType}
-                            sourceurl = {data.SourceUrl}
-                            places = {data.Places}
-                            people = {data.People}
-                            companies = {data.Companies}
+                            score = {data._score}
+                            title = {data._source.DocumentTitle}
+                            year = {data._source.Year}
+                            summary = {data._source.DocumentSummary}
+                            body = {data._source.Body}
+                            geo = {data._source.Geo}
+                            sourcetype = {data._source.SourceType}
+                            sourceurl = {data._source.SourceUrl}
+                            places = {data._source.Places}
+                            people = {data._source.People}
+                            companies = {data._source.Companies}
                             />
                         )
                     })}

@@ -32,6 +32,7 @@ class DataBox extends Component {
 
                 <MetadataBox
                     titleStyle = { this.titleStyle }
+                    score = { this.props.score }
                     geo = { this.props.geo }
                     places = { this.props.places }
                     people = { this.props.people }

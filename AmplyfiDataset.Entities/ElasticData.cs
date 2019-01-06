@@ -6,10 +6,10 @@ namespace AmplyfiDataset.Entities
     public class ElasticData
     {
         [JsonProperty("hits")]
-        public Result Result { get; set; }
+        public ElasticResult Result { get; set; }
     }
 
-    public class Result
+    public class ElasticResult
     {
         [JsonProperty("total")]
         public int total { get; set; }
@@ -22,5 +22,8 @@ namespace AmplyfiDataset.Entities
     {
         [JsonProperty("_source")]
         public object Source { get; set; }
+
+        [JsonProperty("_score")]
+        public double Score { get; set; }
     }
 }

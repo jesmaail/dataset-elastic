@@ -8,7 +8,7 @@ class MetadataBox extends Component {
                 <div className="col-md-4">
                     <div className="card mb-4 shadow-sm">
                         <div className="card-body">
-                            <span style={this.titleStyle}> <b>Metadata</b> </span>
+                            <span style={this.titleStyle}> <b>Metadata - Relevance: { this.props.score }</b> </span>
                             <br/>
                             <MetadataItem 
                                 title = "Geo"

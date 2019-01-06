@@ -1,7 +1,6 @@
 ﻿using AmplyfiDataset.Entities;
 using Newtonsoft.Json;
 using RestSharp;
-using System.Collections.Generic;
 
 namespace AmplyfiDataset.ElasticsearchWrapper
 {
@@ -33,10 +32,10 @@ namespace AmplyfiDataset.ElasticsearchWrapper
             var response = _client.Execute(request, Method.DELETE);
         }
 
-        public object Query(string filter, string value, int amount)
+        public ElasticResult Query(string filter, string value, int amount)
         {
             var searchString = string.Empty;
-            if(filter == null || value == null)
+            if (filter == null || value == null)
             {
                 searchString = $"{ELASTICSEARCH_SEARCH_STRING}?size={amount}";
             }
@@ -51,18 +50,7 @@ namespace AmplyfiDataset.ElasticsearchWrapper
 
             var responseObject = JsonConvert.DeserializeObject<ElasticData>(response.Content);
 
-            var dataList = new List<object>();
-
-            foreach (var data in responseObject.Result.Data)
-            {
-                dataList.Add(data.Source);
-            }
-
-            return new
-            {
-                Total = responseObject.Result.total,
-                Data = dataList
-            };
+            return responseObject.Result;
         }
     }
 }

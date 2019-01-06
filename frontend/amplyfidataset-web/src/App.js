@@ -28,7 +28,7 @@ class App extends Component {
       .then(
         (json) => {
           total = json.data.total;
-          data = json.data.data; 
+          data = json.data.hits; 
 
           if(total < amount){
             amount = total;
