@@ -1,9 +1,9 @@
-﻿using AmplyfiDataset.ElasticsearchWrapper;
-using AmplyfiDataset.Entities;
+﻿using DatasetElastic.ElasticsearchWrapper;
+using DatasetElastic.Entities;
 using Newtonsoft.Json;
 using System.IO;
 
-namespace AmplyfiDataset.BusinessLogic
+namespace DatasetElastic.BusinessLogic
 {
     public class JsonImporter
     {

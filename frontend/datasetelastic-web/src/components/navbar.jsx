@@ -3,7 +3,7 @@ import React from "react";
 const NavBar = () => {
     return (
         <nav className="navbar navbar-light bg-light">
-            <span> Amplyfi Dataset </span>            
+            <span> Dataset Elastic </span>            
             <span> Joseph Esmaail </span>
         </nav>
     );

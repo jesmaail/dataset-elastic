@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "AmplyfiDataset": {
+    "DatasetElastic": {
       "commandName": "Project",
       "launchBrowser": false,
       "launchUrl": "api/values",

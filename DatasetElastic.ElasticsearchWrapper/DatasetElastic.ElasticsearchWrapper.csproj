@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AmplyfiDataset.Entities\AmplyfiDataset.Entities.csproj" />
+    <ProjectReference Include="..\DatasetElastic.Entities\DatasetElastic.Entities.csproj" />
   </ItemGroup>
 
 </Project>

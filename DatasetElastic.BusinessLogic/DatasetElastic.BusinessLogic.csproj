@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AmplyfiDataset.ElasticsearchWrapper\AmplyfiDataset.ElasticsearchWrapper.csproj" />
-    <ProjectReference Include="..\AmplyfiDataset.Entities\AmplyfiDataset.Entities.csproj" />
+    <ProjectReference Include="..\DatasetElastic.ElasticsearchWrapper\DatasetElastic.ElasticsearchWrapper.csproj" />
+    <ProjectReference Include="..\DatasetElastic.Entities\DatasetElastic.Entities.csproj" />
   </ItemGroup>
 
   <ItemGroup>

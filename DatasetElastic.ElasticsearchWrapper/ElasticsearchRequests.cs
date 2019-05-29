@@ -1,9 +1,9 @@
-﻿using AmplyfiDataset.Entities;
+﻿using DatasetElastic.Entities;
 using Newtonsoft.Json;
 using RestSharp;
 using System.Linq;
 
-namespace AmplyfiDataset.ElasticsearchWrapper
+namespace DatasetElastic.ElasticsearchWrapper
 {
     public class ElasticsearchRequests
     {

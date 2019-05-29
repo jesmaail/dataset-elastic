@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AmplyfiDataset.BusinessLogic\AmplyfiDataset.BusinessLogic.csproj" />
+    <ProjectReference Include="..\DatasetElastic.BusinessLogic\DatasetElastic.BusinessLogic.csproj" />
   </ItemGroup>
 
 </Project>

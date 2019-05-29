@@ -1,8 +1,8 @@
-﻿using AmplyfiDataset.BusinessLogic;
-using AmplyfiDataset.ElasticsearchWrapper;
+﻿using DatasetElastic.BusinessLogic;
+using DatasetElastic.ElasticsearchWrapper;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AmplyfiDataset.Controllers
+namespace DatasetElastic.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]

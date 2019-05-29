@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmplyfiDataset", "AmplyfiDataset\AmplyfiDataset.csproj", "{FE153AB9-CDBC-477A-9C61-6468427ABE8B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatasetElastic", "DatasetElastic\DatasetElastic.csproj", "{FE153AB9-CDBC-477A-9C61-6468427ABE8B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmplyfiDataset.BusinessLogic", "AmplyfiDataset.BusinessLogic\AmplyfiDataset.BusinessLogic.csproj", "{19730665-ADFF-4BB2-B155-D48A70CA92DF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatasetElastic.BusinessLogic", "DatasetElastic.BusinessLogic\DatasetElastic.BusinessLogic.csproj", "{19730665-ADFF-4BB2-B155-D48A70CA92DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmplyfiDataset.ElasticsearchWrapper", "AmplyfiDataset.ElasticsearchWrapper\AmplyfiDataset.ElasticsearchWrapper.csproj", "{71FB3B1E-8B78-4BE1-9F84-0DC3C8836108}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatasetElastic.ElasticsearchWrapper", "DatasetElastic.ElasticsearchWrapper\DatasetElastic.ElasticsearchWrapper.csproj", "{71FB3B1E-8B78-4BE1-9F84-0DC3C8836108}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmplyfiDataset.Entities", "AmplyfiDataset.Entities\AmplyfiDataset.Entities.csproj", "{840A74EF-4E61-4244-BE20-D5BFA26D4420}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatasetElastic.Entities", "DatasetElastic.Entities\DatasetElastic.Entities.csproj", "{840A74EF-4E61-4244-BE20-D5BFA26D4420}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
